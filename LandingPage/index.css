@@ -11,6 +11,7 @@
     margin-right:-10px;
     height:auto;
     font-size:36px;
+    
 
   color:#1F2937
 }
@@ -58,4 +59,69 @@
     padding-bottom:30px;
     margin-top:10px;
     margin-bottom:20px;
+    margin-right:-8px;
+    margin-left:-8px;
+  }
+  .DarkBackground{
+    background-color:#1F2937; 
+  }
+  #section1{
+    margin-right:-8px;
+    margin-left:-8px;
+    margin-top:-8px;
+    color:white;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    
+  }
+  #list{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    padding-right:30px;
+  }
+  #logocontent{
+    display:flex;
+    flex-direction:row;
+    justify-content:center
+  }
+  div{
+    padding:5px;
+  }
+
+.invisibleContent{
+    border-radius:8px;
+    width:120px;
+    height:120px;
+    border: 3px solid #3882F6;
+  
+  }
+  #maintext{
+    font-size:24px;
+    text-align:center;
+  }
+  
+  
+  .word{
+    max-width:120px;
+    word-wrap:beak-all;
+    text-align:center;
+    padding:3px;
+  
+  }
+  .component{
+    display:flex;
+    flex-direction:column;
+  
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+  }
+  #collection{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    padding-top:10px;
   }
