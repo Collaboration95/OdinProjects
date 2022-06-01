@@ -47,3 +47,15 @@
     padding: 3px;
     border-radius:4px;
   }
+  .DarkBackground{
+    background-color:#1F2937; 
+  }
+  #section6{
+      color:white;
+    display:flex;
+    justify-content:center;
+    padding-top:30px;
+    padding-bottom:30px;
+    margin-top:10px;
+    margin-bottom:20px;
+  }
