@@ -1,0 +1,19 @@
+
+ #section4{
+    padding-top:30px;
+    padding-bottom:30px;
+    background-color:#E5E7EB;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    margin-left:-10px;
+    align-items:center;
+    margin-right:-10px;
+    height:auto;
+    font-size:36px;
+
+  color:#1F2937
+}
+#author{
+  margin-right:-530px;
+}
