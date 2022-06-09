@@ -1,51 +1,72 @@
-function startGame(totalPlays){
-    console.log(`Okay lets play the game ${totalPlays} times`)
-    let i = totalPlays;
-    let FinalUser = 0, tiedGames = 0; 
+const Options = document.querySelectorAll("#humanOptions button");
+Options.forEach(element=>{element.addEventListener('click',passHumanOption)})
+let infoArray = [5,0,0]
 
-    while(i>0){
-        var didUserWin = onePlay();
-        if(typeof(didUserWin)==null){
-            console.log("It was a tie")
-            tiedGames++;
-        }
-        else{
-            if(didUserWin){
-                FinalUser++;
-            }
+const resetButton = document.querySelector("div #reset")
+resetButton.addEventListener('dblclick',resetProgress)
 
-        }
-        i--;
-    }
-    console.log("Summary of the game :")
-    console.log(`Total Matches Played: ${totalPlays}`)
-    console.log(`The user won ${FinalUser} times`)
-    console.log(`The Computer Won ${totalPlays-tiedGames-FinalUser} times`)
-}
-function onePlay(ButtonInput){
-    let userInput = prompt("Enter Rock , Paper , scissors").toLowerCase()
+function onePlay(userOption ,computerOption){
     let computerOptions = ['rock','paper','scissors','rock']
-    let computerChoice = computerOptions[Math.floor(Math.random()*3)]
-    console.log(`The user plays ${userInput}`)
-    console.log(`The computer plays ${computerChoice}`)
+    let userInput = userOption, computerChoice = computerOption
     if(userInput==computerChoice){
-        console.log("Its a tie")
-        return null;
+
+        updateScore(null);
     }
     else if(computerOptions.indexOf(userInput)-1==computerOptions.indexOf(computerChoice)){
-        console.log("User Wins")
-        return 1;
+
+        updateScore(1);
     }
     else {
-        console.log("Computer Wins")
-        return 0;}
+
+        updateScore(0);
+    }
 }
 
 // startGame(prompt("How many times do you want to play this game ?"))
+function resetProgress(){
+    console.log("progress has been reset")
+    Options.forEach(element=>{element.addEventListener('click',passHumanOption)})
+    resetInfo();
+}
 
-const rock = document.querySelector("#rock")
-const paper = document.querySelector("#paper")
-const scissors = document.querySelector("#scissors")
+function updateScore(gameOutcome){
+    if(typeof(gameOutcome)==null){
+        console.log("It was a tie")
 
-rock.addEventListener('click',onePlay(rock))
+    }
+    else{
+        if(gameOutcome){
+            console.log("User Won")
+            infoArray[1]++;
+        }
+        else{
+            console.log("Computer Won")
+            infoArray[2]++;
+        }
 
+    }
+    infoArray[0]--;
+    console.log(`You have turns ${infoArray[0]} left`)
+    if(infoArray[0]==0){
+        Options.forEach(element=>{element.removeEventListener('click',passHumanOption)})
+        printSummary(infoArray);
+        resetInfo();
+    }
+}
+const resetInfo = () =>{infoArray =[5,0,0]}
+
+
+function printSummary(userInfo){
+    console.log("The following is a game summary")
+    console.log(`The computer won ${userInfo[2]} games , the user won ${userInfo[1]} games, ${5-userInfo[1]-userInfo[2]} games were tied`)
+}
+
+function passHumanOption(event){
+    console.log(event.target.id)
+    onePlay(event.target.id,simulateComputerChoice())
+}
+
+function simulateComputerChoice(){
+    let computerOptions = ['rock','paper','scissors','rock']   
+    return computerOptions[Math.floor(Math.random()*3)]
+}
