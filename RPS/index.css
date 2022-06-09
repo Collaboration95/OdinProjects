@@ -1,0 +1,28 @@
+
+body{
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
+
+#humanOptions{
+    display:flex;
+    justify-content:center;
+    padding: 6vw 0px 6vw 0px;
+
+}
+.interactive{
+    margin: 0px 3vw 0px 3vw;
+    padding: 1vw 1vw 1vw 1vw;
+    border-radius:.5vw;
+}
+.center{
+    display:flex;
+    justify-content: center;
+    
+}
+
+.main-text{
+    font-size: clamp(2rem, 8vw, 7rem); 
+    flex-wrap: nowrap;
+}
