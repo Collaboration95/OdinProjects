@@ -22,7 +22,7 @@ function startGame(totalPlays){
     console.log(`The user won ${FinalUser} times`)
     console.log(`The Computer Won ${totalPlays-tiedGames-FinalUser} times`)
 }
-function onePlay(){
+function onePlay(ButtonInput){
     let userInput = prompt("Enter Rock , Paper , scissors").toLowerCase()
     let computerOptions = ['rock','paper','scissors','rock']
     let computerChoice = computerOptions[Math.floor(Math.random()*3)]
@@ -41,4 +41,11 @@ function onePlay(){
         return 0;}
 }
 
-startGame(prompt("How many times do you want to play this game ?"))
+// startGame(prompt("How many times do you want to play this game ?"))
+
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
+
+rock.addEventListener('click',onePlay(rock))
+
