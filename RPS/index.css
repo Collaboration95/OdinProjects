@@ -3,18 +3,36 @@ body{
   display:flex;
   justify-content:center;
   flex-direction:column;
+  background-color:#eab676;
 }
 
-#humanOptions{
-    display:flex;
-    justify-content:center;
-    padding: 6vw 0px 6vw 0px;
 
+
+#humanOptions{
+
+    display:flex;
+    justify-content:space-between;
+    flex-direction:column;
+    width:fit-content; 
+    transition-duration: .5s;   
+    transition-delay: .2s;
+}
+#humanOptions:hover{
+
+    border: 2px solid rgb(94, 136, 172);
+}
+.column-align{
+    display:flex;
+    flex-direction:column;
+
+    padding: 0px 20px 0px 20px;
 }
 .interactive{
     margin: 0px 3vw 0px 3vw;
     padding: 1vw 1vw 1vw 1vw;
     border-radius:.5vw;
+
+
 }
 .center{
     display:flex;
@@ -23,6 +41,58 @@ body{
 }
 
 .main-text{
-    font-size: clamp(2rem, 8vw, 7rem); 
+    font-size: clamp(1rem, 3vw, 7rem); 
     flex-wrap: nowrap;
 }
+
+
+  .text{
+      text-align: center;
+  }
+.displaybox{
+    width: max(10px,100%);
+    height:3vw;
+    background-color:#1e81b0;
+    /* margin: 0px 20px 0px 20px; */
+}
+#result{
+    padding: 20px 0px 20px 0px;
+}
+#PlayerScores{
+    color:black;
+    text-align: center;
+}
+#ComputerScores{
+    color:black;
+    text-align:center;
+}
+.button{
+    background-color:black;
+    border-radius: 3px;
+    color:aliceblue;
+    
+    text-align: center;
+    transition-duration: .4s;
+}
+.button:hover{
+    transform: scale(1.2);
+    border: 2px solid white;
+}
+.button:active{
+    opacity: 40%;
+    
+}
+.row-align{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    
+}
+#reset {
+    margin: 6vw 0px 6vw 0px;
+}
+.secondary-text{
+ font-size: clamp(1rem, 1.5vw, 2.5rem);   
+}
+
+
