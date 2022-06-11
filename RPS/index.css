@@ -20,68 +20,95 @@ body{
     margin:20px 30px 0px 30px;
     font-family: 'Macondo', cursive;
     font-family: 'Patrick Hand', cursive;
+    background-color: var(--backgroundcolor);
+    color:var(--fontcolor);
+}
+#main-text{
+    font-size:100px;
+    
+}
+#secondary-text{
+    font-size:35px;
+    margin-top:-100px;    
 }
 
+#small-text{
+    margin-top:-20px;
+    font-size:20px;
+}
+
+
 #bigredbutton{
-    color:#FF5C5C;
+    color:red;
     padding:10px 15px 10px 15px;
     border-radius:6px;
-    background-color:white;
-    border: 2px solid black;
-    box-shadow: 5px 5px black;
+    background-color:var(--backgroundcolor);
+    border: 2px solid var(--fontcolor);
+    box-shadow: 5px 5px var(--fontcolor);
     transition-duration: .7s, .2s;
     transition-property: transform, box-shadow;
     width:auto;
+    margin:30px 0px 40vh 0px;
+
+
     height:fit-content;
+    animation: repeat 5s infinite;
 }
 
+@keyframes repeat{
+    0%{
+        transform:scale(1.0)
+    }
+    50%{
+        transform:scale(1.2)
+
+    }
+    100%{
+        transform:scale(1.0)
+    }
+}
 
 
 
 @media only screen and (min-width: 600px){
-
     .main-align{
-        border: 3px solid black;
-    }
-    #main-text{
-        font-size:65px;
-    }
-    #secondary-text{
-        font-size:30px;
-    }
-    #small-text{
-        margin-top:10px;
-        font-size:13px;
-    }
-    .main-align{
+        border: 3px solid var(--fontcolor);
+        border-radius:30px;
         display:flex;
         flex-direction:column;
         text-align:center;
         justify-content: center;
+        margin:50px 100px 0px 100px;
     
     }
+    #bigredbutton{
+        padding:15px 22px 15px 22px;
+        font-size:18px;
+    }
     #bigredbutton:hover{
-        transform: scale(1.2);
+        animation-play-state:paused;
     }
     
     #bigredbutton:active{
         box-shadow:1px 3px black;
     }
+    #main-text{
+        margin-top:-10px;
+    }
     
    }
+#red{
+    display:inline;
+    color:red;
+}
+
 
 
 @media  (max-width: 600px){
-    body{
-        background-color: var(--backgroundcolor);
-    }
-    *{
-        color:var(--fontcolor)
 
-    }
     #main-text{
         font-size:65px;
-        padding-right:200px;
+        padding-right:300px;
     }
     #secondary-text{
         font-size:30px;
@@ -97,7 +124,6 @@ body{
         flex-direction:column;
         text-align:center;
         justify-content: center;
-    
     }
     #bigredbutton{
         padding:10px 15px 10px 15px;
@@ -105,9 +131,11 @@ body{
         background-color:var(--backgroundcolor);
         border: 2px solid var(--fontcolor);
         box-shadow: 4px 4px var(--fontcolor);
-
+        
     }
-
+    #bigredbutton:hover{
+        animation-play-state:paused;
+    }
     #bigredbutton:active{
         box-shadow:1px 3px black;
     }
