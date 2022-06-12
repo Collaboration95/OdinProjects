@@ -17,6 +17,8 @@
 /* General properties  */
 
 body{
+    display:flex;
+    justify-content:center;
     margin:20px 30px 0px 30px;
     font-family: 'Macondo', cursive;
     font-family: 'Patrick Hand', cursive;
@@ -46,7 +48,7 @@ body{
     border: 2px solid var(--fontcolor);
     box-shadow: 5px 5px var(--fontcolor);
     transition-duration: .7s, .2s;
-    transition-property: transform, box-shadow;
+    transition-property: transform;
     width:auto;
     margin:30px 0px 40vh 0px;
 
@@ -70,7 +72,7 @@ body{
 
 
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 688px){
     .main-align{
         border: 3px solid var(--fontcolor);
         border-radius:30px;
@@ -78,7 +80,8 @@ body{
         flex-direction:column;
         text-align:center;
         justify-content: center;
-        margin:50px 100px 0px 100px;
+        margin:50px 100px 50px 100px;
+        width:1000px;
     
     }
     #bigredbutton{
@@ -104,11 +107,14 @@ body{
 
 
 
-@media  (max-width: 600px){
+@media  (max-width: 688px){
 
     #main-text{
         font-size:65px;
+        margin-left:100px;
         padding-right:300px;
+        margin-top:-20px;
+
     }
     #secondary-text{
         font-size:30px;
@@ -130,6 +136,8 @@ body{
         margin-top:40px;
         background-color:var(--backgroundcolor);
         border: 2px solid var(--fontcolor);
+        transition-property:box-shadow;
+        transition-duration:.3s;
         box-shadow: 4px 4px var(--fontcolor);
         
     }
@@ -137,6 +145,7 @@ body{
         animation-play-state:paused;
     }
     #bigredbutton:active{
+
         box-shadow:1px 3px black;
     }
     

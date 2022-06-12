@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Patrick+Hand&display=swap');
+
+/* setting color theme  */
+:root{
+    --red:red;
+    --fontcolor:black;
+    --backgroundcolor:white;
+}
+
+/* changing variables wrt to theme-preference */
+@media (prefers-color-scheme: dark) {
+:root{
+    --fontcolor:aliceblue;
+    --backgroundcolor:black;
+}
+  }
+/* General properties  */
+
+body{
+    user-select:none;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    font-family: 'Macondo', cursive;
+    font-family: 'Patrick Hand', cursive;
+    background-color: var(--backgroundcolor);
+    color:var(--fontcolor);
+}
+
+.main-align{
+    display:flex;
+    flex-direction:column;
+
+}
+#main-text{
+    margin-top:-1vw;
+    font-size:10vw;
+}
+
+#small-text{
+    margin: -6vw 0px 20px 0px;
+    font-size:30px;
+}
+#scoreboardcomponent{
+    border:2px solid var(--fontcolor);
+    box-shadow:0 0 5px 1px var(--fontcolor);
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    margin: 10px auto 10px auto;
+    padding:10px 40px 20px 40px;
+    max-width:fit-content;
+    border-radius:15px;
+}
+
+#scoreboardcomponenttitle{
+    font-size:40px;
+}
+
+#usercards{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+
+.info{
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.scorename{
+    font-size:35px;
+}
+.score{
+    height:auto;
+    margin:0px 10px 0px 10px;
+    border: 2px solid var(--fontcolor);
+    padding:1px 30px 1px 30px;
+    border-radius:8px;
+    width:fit-content;
+    font-size:30px;
+    min-width:20px;
+}
+
+#round{
+    font-size:35px;
+    margin-bottom: 20px;
+}
+
+.options{
+    height:fit-content;
+    margin:10px 10px 10px 10px;
+    padding:0px 10px 0px 10px;
+    box-shadow:0 0 5px 2px var(--fontcolor);
+    border: 2px solid   var(--fontcolor);
+    border-radius:8px;
+    min-width:80px;
+    font-size:25px;
+    transition-property:background-color,color,transform,border;
+    transition-duration:.2s,.1s,.2s,.2s;
+    user-select: none;
+    animation-name:buzz;
+    animation-duration:5s;
+    animation:buzz 5s linear 0s infinite;
+}
+@keyframes buzz{
+    0%{
+        box-shadow:0 0 5px 2px var(--fontcolor);
+    }
+    50%{
+        box-shadow:0 0px 6px 3px var(--fontcolor);
+    }
+    100%{
+        box-shadow:0 0 5px 2px var(--fontcolor);
+    }
+   }
+
+#bigredbutton{
+    color:red;
+    padding:10px 15px 10px 15px;
+    border-radius:6px;
+    background-color:var(--backgroundcolor);
+    border: 2px solid var(--fontcolor);
+    box-shadow: 3px 5px var(--fontcolor);
+    transition-duration: .7s, .2s;
+    transition-property: transform;
+    width:auto;
+    height:fit-content;
+    animation: repeat 5s infinite;
+    padding:10px 15px 10px 15px;
+    transition-property:box-shadow;
+    transition-duration:.3s;
+    margin-top:80px;
+}
+
+#bigredbutton:active{
+    box-shadow:1px 3px var(--fontcolor);
+
+}
+
+/* Button animation */
+@keyframes repeat{
+    0%{
+        transform:scale(1.0)
+    }
+    50%{
+        transform:scale(1.2)
+
+    }
+    100%{
+        transform:scale(1.0)
+    }
+}
+
+@media  (max-width: 688px){
+
+    #round{margin-top:30px;}
+
+    #mobile-align-2{
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+    }
+
+    .mobile-align{
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+    }
+
+
+   }
+
+#ResultDisplay{
+    height:auto;
+    margin:15px auto 10px auto;
+    padding:3px 0px 3px 0px;
+    box-shadow:0 0 5px 2px rgb(190, 174, 174);
+    border: 2px solid var(--fontcolor);
+    border-radius:8px;
+    max-width:300px;
+    font-size:30px;
+}
+
+@media only screen and (min-width: 688px){
+    /* .main-align{
+        border: 3px solid var(--fontcolor);
+        border-radius:30px;
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        justify-content: center;
+        width:1000px;
+    } */
+    .options:hover{
+        transform:scale(1.2);
+        color:var(--backgroundcolor);
+        background-color: var(--fontcolor);
+        cursor:none;
+    }
+    .options:active{
+        color:var(--backgroundcolor);
+        background-color: var(--fontcolor);
+    }
+
+    #secondcolumn{
+
+        margin-left:-300px;
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start ;
+    }
+    #mobile-align-2{
+        display:flex;
+        flex-direction:column;  
+        margin:auto;
+    }
+
+    #bigredbutton:hover{
+        animation-play-state:paused;
+        cursor:pointer;
+    }
+    
+    .mobile-align{
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;
+
+    }
+
+    #bigredbutton{
+        padding:15px 22px 15px 22px;
+        font-size:18px;
+    }
+
+    
+    #bigredbutton:hover{
+        animation-play-state:paused;
+    }
+    
+    #bigredbutton:active{
+        box-shadow:1px 3px var(--fontcolor);
+    }
+
+    .options{
+        margin:10px auto 10px auto;
+
+    }
+
+    .options:active{
+        color:var(--backgroundcolor);
+        background-color: var(--fontcolor);
+        border:2px solid var(--backgroundcolor)
+
+
+    }
+
+    
+    
+
+   }
+
