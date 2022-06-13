@@ -15,7 +15,11 @@
 }
   }
 /* General properties  */
-
+a{
+    cursor:pointer;
+    text-decoration:none;
+    color:var(--red);
+}
 body{
     display:flex;
     justify-content:center;

@@ -158,6 +158,11 @@ body{
 
     #round{margin-top:30px;}
 
+    .options:active{
+    color:var(--backgroundcolor);
+    background-color: var(--fontcolor);
+    border:2px solid var(--backgroundcolor)
+    }
     #mobile-align-2{
         display:flex;
         flex-direction:row;
@@ -203,6 +208,7 @@ body{
     .options:active{
         color:var(--backgroundcolor);
         background-color: var(--fontcolor);
+        border:2px solid var(--backgroundcolor)
     }
 
     #secondcolumn{
@@ -249,13 +255,7 @@ body{
 
     }
 
-    .options:active{
-        color:var(--backgroundcolor);
-        background-color: var(--fontcolor);
-        border:2px solid var(--backgroundcolor)
 
-
-    }
 
     
     
