@@ -1,7 +1,8 @@
 const Options = document.querySelectorAll(".options");
 Options.forEach(element=>{element.addEventListener('click',passHumanOption)})
-
-let infoArray = [5,0,0]
+let roundNames = ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"]
+let roundVariable  = 0;
+let infoArray = [5,0,0,0]
 
 const resetButton = document.querySelector("#bigredbutton")
 resetButton.addEventListener('dblclick',resetProgress)
@@ -30,11 +31,13 @@ function onePlay(userOption ,computerOption){
 // startGame(prompt("How many times do you want to play this game ?"))
 function resetProgress(){
     console.log("progress has been reset")
+    document.querySelector("#round").textContent  = "Round One"
     Options.forEach(element=>{element.addEventListener('click',passHumanOption)})
     document.querySelector("#PlayerScores").textContent = 0;
     document.querySelector("#ComputerScores").textContent = 0;
+    roundVariable =1 ;
     let resultString = ""
-    if(infoArray.indexOf(max(infoArray[1],infoArray[2]))==1){
+    if(infoArray.indexOf(Math.max(infoArray[1],infoArray[2]))==1){
         resultString = "user Wins"
     }
     else{
@@ -50,6 +53,7 @@ function updateScore(gameOutcome){
     if(gameOutcome===null){
         console.log("It was a tie")
         infoArray[0]++;
+        infoArray[3]++;
     }
     else{
         if(gameOutcome){
@@ -66,25 +70,27 @@ function updateScore(gameOutcome){
 
     }
     updateGeneral(infoArray,currentWinner)
-    infoArray[0]--;
+
     console.log(`You have turns ${infoArray[0]} left`)
     if(infoArray[0]==0){
+        document.querySelector("#round").textContent= "Game Over "
         if(infoArray.indexOf(Math.max(infoArray[1],infoArray[2]))==1){
             document.querySelector("#ResultDisplay").textContent = "User Wins Game!"
         }
         else{document.querySelector("#ResultDisplay").textContent = "Computer Wins Game!"}
         Options.forEach(element=>{element.removeEventListener('click',passHumanOption)})
+    
 
         printSummary(infoArray);
         resetInfo();
     }
 }
-const resetInfo = () =>{infoArray =[5,0,0]}
+const resetInfo = () =>{infoArray =[5,0,0,0]}
 
 
 function printSummary(userInfo){
     console.log("The following is a game summary")
-    console.log(`The computer won ${userInfo[2]} games , the user won ${userInfo[1]} games, ${5-userInfo[1]-userInfo[2]} games were tied`)
+    console.log(`The computer won ${userInfo[2]} games , the user won ${userInfo[1]} games, ${userInfo[3]} games were tied`)
 }
 
 function passHumanOption(event){
@@ -103,10 +109,15 @@ function simulateComputerChoice(){
 function updateGeneral(infoArray,winner){
     document.querySelector("#PlayerScores").textContent = infoArray[1]
     document.querySelector("#ComputerScores").textContent = infoArray[2]
+
+    document.querySelector("#round").textContent = `Round ${roundNames[roundVariable]}`
+
+    roundVariable++;
     let resultString = "";
     if(winner!==null){resultString =  `${winner} Wins`}
     else{resultString = `It was a tie`}
-    document.querySelector("#ResultDisplay").textContent = resultString
+    document.querySelector("#ResultDisplay").textContent = resultString;
+    infoArray[0]--;
 }
 
 // document.querySelector("#overlayButton").addEventListener('click',clearOverlay)
