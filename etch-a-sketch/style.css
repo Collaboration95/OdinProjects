@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Patrick+Hand&display=swap');
 
 /* Universal white theme preference */
@@ -9,7 +8,6 @@
 }
 
 /* General properties  */
-
 #main-align{
     display:flex;
     flex-direction:column;
@@ -17,11 +15,6 @@
     justify-content:center;
 }
 
-a{
-    cursor:pointer;
-    text-decoration:none;
-    color:var(--red);
-}
 body{
     display:flex;
     justify-content:center;
@@ -31,109 +24,117 @@ body{
     color:var(--fontcolor);
     user-select: none;
 }
-.buttons{
-    text-align: center;
-    font-size:25px;
-    background-color:var(--backgroundcolor);
-    border:2px solid black;
-    border-radius:9px;
-    width:fit-content;
-    padding:2px 20px 2px 20px;
-    min-width:50px;
-}
-#column1{
 
+#displaycomponent{
+    display:grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows:repeat(20,1fr);
+    border-radius: 8px;
+    border: 4px solid black;
+    background-color:#E5E5E5;    
+    width:400px;
+    height:400px;
+}
+
+#tertiary-align{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+  #slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; 
+    height: 10px;
+    border-radius:10px;
+    background: #e5e5e5; 
+    outline: none;
+}
+  
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 25px; 
+    height: 25px;
+    border-radius:50%;
+    background: #000000;
+    cursor: pointer; 
+  }
+
+#column1{
     display:flex;
     flex-direction:column;
 }
+
 #column2{
     display:flex;
     flex-direction:column;
 }
-#tertiary-align{
-    display:flex;
-    flex-direction:column;
-}
-#displaycomponent{
-    border-radius: 8px;
-    border: 4px solid black;
+
+.buttons{
+    border:2px solid black;
+    border-radius:9px;
+    padding:2px 20px 2px 20px;
+    font-size:25px;
+    text-align: center;
+    background-color:var(--backgroundcolor);    
+    width:fit-content;
+    min-width:50px;
 }
 
-#tertiary-align{
-    align-items:center;
+.buttons:active{
+    background-color:var(--fontcolor);
+    color:var(--backgroundcolor);
 }
-
 
 @media only screen and (min-width: 688px){
     #main-text{
         font-size:100px;
     }
+    
     #secondary-align{
         display:flex;
-        flex-direction:row;
-        justify-content: space-around;
-        align-items: space-around;
     }
-    #slider{
-        margin:10px 40px 0px -90px;
-        width:256px;
-    }
-    #secondary-align > *{
-        margin:10px 20px 10px 20px;
+    
+    #tertiary-align{
+        margin:40px 40px 0px -90px;
     }
 
-    #displaycomponent{
-        margin:0px 40px 0px -90px;
-        display:grid;
-        grid-template-columns: repeat(20,1fr);
-        grid-template-rows:repeat(20,1fr);
-        width:400px;
-        height:400px;
-        background-color:#E5E5E5;
-    
+    #slider{
+        margin:30px 0px 0px 0px;
+        width:256px;
     }
-    #button-align > * {
-        margin:10px;
-    }
-    #column1 > * , #column2 > *{
-        margin:10px;
-    }
+
     #button-align{
         display:flex;
         justify-content:center;
         flex-direction:column-reverse;
         margin:30px 0px 30px 0px;
     }
-    .buttons:active{
-        background-color:var(--fontcolor);
-        color:var(--backgroundcolor);
+
+    #column1 > * , #column2 > *{
+        margin:20px;
     }
-    
 }
 
-
-
-@media  (max-width: 688px){
-    
+@media  (max-width: 688px){    
     #main-text{
         font-size:70px;
     }
+
+    #tertiary-align{
+        margin:40px 0px 0px 0px;
+    }
+    
     #displaycomponent{
-        display:grid;
-        grid-template-columns: repeat(20,1fr);
-        grid-template-rows:repeat(20,1fr);
         width:350px;
         height:350px;
-        background-color:#E5E5E5;
     }
-    .buttons:active{
-        background-color:var(--fontcolor);
-        color:var(--backgroundcolor);
-    }
+
     #slider{
         width: 256px;
-        margin:10px;
-
+        margin:30px 0px 0px 0px;
     }
     
     #button-align{
@@ -142,6 +143,7 @@ body{
         flex-direction:row;
         justify-content: center;
     }
+    
     .buttons{
         margin:10px;
     }
