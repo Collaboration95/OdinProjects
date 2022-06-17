@@ -1,7 +1,8 @@
 let defaultColor = "black";
 let defaultMode = "none";
 let currentMode = defaultMode;
-let memory = '';
+let memory = 0;
+let memoryArray  = []
 
 let buttons = document.querySelectorAll(".buttons")
 buttons.forEach(element => {element.addEventListener('click',buttonClick)})
@@ -11,55 +12,49 @@ let parentGrid  = document.querySelector("#displaycomponent")
 
 setUpGrid(slider.value)
 
-function setUpGrid(side){
+function setUpGrid(side,previousLife= []){
     parentGrid.innerHTML ='';
     parentGrid.style.gridTemplateColumns = `repeat(${side}, 1fr)`;
     parentGrid.style.gridTemplateRows = `repeat(${side}, 1fr)`;
-  
-    for (let i = 0; i < side * side; i++) {
-        const block= document.createElement('div');
-        block.addEventListener('mouseover',changeColor);
-        block.addEventListener('mousedown',changeColor);
-        parentGrid.appendChild(block);
-      }
+    if(previousLife){
+        previousLife = previousLife.map(element=>{return parseInt(element)});
+        console.log(previousLife)
+        for (let i = 0; i < side * side; i++) {
+            const block= document.createElement('div');
+            block.setAttribute("id",i)
+            if (previousLife.indexOf(i)!=-1){
+                console.log(i)
+                block. classList.add("on")
+            }
+            block.addEventListener('mouseover',changeColor);
+            block.addEventListener('touchstart',changeColor)
+            block.addEventListener('mousedown',changeColor);
+            parentGrid.appendChild(block);
+          }
+    }
+    else{
+        for (let i = 0; i < side * side; i++) {
+            const block= document.createElement('div');
+            block.setAttribute("id",i)
+            block.addEventListener('mouseover',changeColor);
+            block.addEventListener('touchstart',changeColor)
+            block.addEventListener('mousedown',changeColor);
+            parentGrid.appendChild(block);
+          }
+    }
+
 }
 
 function changeColor(e){
-    if(currentMode=='draw'){e.target.style.backgroundColor = defaultColor;}
-    else if(currentMode=='erase'){e.target.style.removeProperty('background-color')}
+    if(currentMode=='draw'){e.target.style.backgroundColor = defaultColor;e.target.classList.add("on")}
+    else if(currentMode=='erase'){e.target.style.removeProperty('background-color');e.target.classList.remove("on")}
 }
 
-function printSlider(sliderValue = slider.target.value){
+function printSlider(){
     console.log(`${slider.value} is the slider value`)
-    setUpGrid(sliderValue)
+    setUpGrid(slider.value)
 }
 
-// function buttonClick(e){
-//     let clickedButton = document.querySelector(`#${e.target.id}`);
-
-//     if(clickedButton.classList.contains('selected')){
-//         currentMode = defaultMode;
-//         console.log("background is black")
-//         clearButtons()
-//     }
-//     else{
-//         clearButtons()
-//         clickedButton.classList.add('selected')    
-//         currentMode = `${clickedButton.id}`;
-//     }
-//     console.log(`${clickedButton.id} is the current button being pressed`)
-//     if(e.target.id =="clear" ){
-//         clear()
-//     }
-//     else if(e.target.id=='save' && e.target.textContent=="Save"){
-//         save()
-//         e.target.textContent="Revert"
-//     }
-//     else if(e.target.id='save' && e.target.textContent=="Revert"){
-//         printSlider(memoryslider)
-//         e.target.textContent="Save"
-//     }
-// }
 function buttonClick(e){
     let clickedButton = document.querySelector(`#${e.target.id}`);
     
@@ -77,16 +72,20 @@ function buttonClick(e){
     console.log(`${clickedButton.id} is the current button being pressed`)
     
     if(e.target.id =="clear") {clear()}
-    // else if(e.target.id=='save' && e.target.textContent=="Save")
-    //     {
-    //     save()
-    //     e.target.textContent="Revert"
-    //     }
-    // else if(e.target.id='save' && e.target.textContent=="Revert"){
-    //     printSlider(memoryslider)
-    //     e.target.textContent="Save"
-    //     }
-    
+    else if(e.target.id=="save" && e.target.textContent=="Save")
+    {
+        printInner()
+        e.target.textContent="Revert";
+    }
+    else if(e.target.id=="save" && e.target.textContent=="Revert")
+    {
+        console.log(memoryArray);
+        setUpGrid(memory,memoryArray);
+        memoryArray= [];
+        memory = 0;
+        e.target.textContent="Save";
+    }
+
 }
 
 function save(){
@@ -99,3 +98,13 @@ function clear(){
 }
 
 const clearButtons = () =>{ buttons.forEach(element=>{element.classList.remove('selected')})}
+
+function printInner (){
+    let childElements = document.querySelectorAll("#displaycomponent div")
+    memory = Math.sqrt(childElements.length)
+    childElements.forEach(element=>{
+        if(element.classList.contains("on"))
+        {memoryArray.push(element.id)};
+    })
+
+}

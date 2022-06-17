@@ -170,3 +170,7 @@ body{
     border:1px solid white;
     transform:scale(1.15);
 }
+
+.on{
+    background-color:black;
+}
