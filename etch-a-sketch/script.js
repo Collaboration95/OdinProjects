@@ -42,12 +42,11 @@ function setUpGrid(side,previousLife= []){
             parentGrid.appendChild(block);
           }
     }
-
 }
 
 function changeColor(e){
-    if(currentMode=='draw'){e.target.style.backgroundColor = defaultColor;e.target.classList.add("on")}
-    else if(currentMode=='erase'){e.target.style.removeProperty('background-color');e.target.classList.remove("on")}
+    if(currentMode=='draw'){e.target.style.backgroundColor = defaultColor; e.target.classList.add("on")}
+    else if(currentMode=='erase'){e.target.style.removeProperty('background-color'); e.target.classList.remove("on")}
 }
 
 function printSlider(){
@@ -57,7 +56,6 @@ function printSlider(){
 
 function buttonClick(e){
     let clickedButton = document.querySelector(`#${e.target.id}`);
-    
     if(clickedButton.classList.contains('selected')){
         console.log(`${clickedButton.id} alreadySelected`)
         currentMode = defaultMode;
@@ -69,6 +67,7 @@ function buttonClick(e){
         currentMode = `${clickedButton.id}`
         console.log(currentMode)
     }
+
     console.log(`${clickedButton.id} is the current button being pressed`)
     
     if(e.target.id =="clear") {clear()}
@@ -85,15 +84,9 @@ function buttonClick(e){
         memory = 0;
         e.target.textContent="Save";
     }
-
 }
 
-function save(){
-    memoryslider = slider.value;
-
-}
 function clear(){
-    // slider.value = 50;
     setUpGrid(slider.value)
 }
 
@@ -106,5 +99,4 @@ function printInner (){
         if(element.classList.contains("on"))
         {memoryArray.push(element.id)};
     })
-
 }
