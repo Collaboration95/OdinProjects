@@ -6,22 +6,124 @@
     --red:red;
     --fontcolor:black;
     --backgroundcolor:white;
+ 
 }
-
 /* @media (prefers-color-scheme: dark) {
 :root{
     --fontcolor:aliceblue;
     --backgroundcolor:black;
 }
-  } */
-
-  
+  } */  
 body{
-    display:flex;
-    justify-content:center;
-    margin:20px 30px 0px 30px;
+
+    user-select:none;
+    font-size:30px;
+    display:flex; 
+    justify-content:center; 
     font-family: 'Macondo', cursive;
     font-family: 'Patrick Hand', cursive;
     background-color: var(--backgroundcolor);
     color:var(--fontcolor);
 }
+#calc{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding:10px 20px 10px 20px;
+    box-shadow: 0 0 50px #154c7979;
+    width:fit-content;
+    margin:auto auto auto auto;
+    border-radius:10px;
+}
+
+#display{
+    /* border: 2px solid black; */
+    height:70px;
+    width:210px;
+    border-radius:15px;
+    margin:3px 0px 3px 0px;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction:column;
+    box-shadow: rgb(223, 222, 222) 0px 0px 6px 2px inset;
+	background-color: rgba(255, 255, 255, 0.858);
+
+}
+
+#display > *{margin-right:3px;}
+#history{
+    font-size:25px;
+}
+#result{
+    font-size:20px;
+}
+.rowalign{
+    display:flex;
+    flex-direction:row;
+}
+
+.button{
+    text-align:center;
+    margin:3px;
+    border:3px solid #154c79;
+    border-radius:50%;
+    padding:3px;
+    height:auto;
+    min-width:35px;
+    min-height:15px;
+    transition-property:transform,color,background-color;
+    transition-duration:.2s,.2s,.3s;
+}
+
+.button.action{
+    color:#154c79;
+}
+
+.button.equal{
+    background-color:#76b5c5 ;
+    min-width:89px;
+    border-radius:40px;
+}
+@media  (max-width: 688px){
+    body{
+        zoom:1.45;
+    }
+
+    .button:active{
+        transform:translateY(3px);
+    }
+
+    .button.action:active{
+        transform:translateY(5px);
+        background-color:#154c79;
+        color:white;
+    }
+
+
+   }
+
+@media  only screen and (min-width: 688px){
+
+    body{
+        zoom:1.75;
+    }
+
+    .button:hover{
+        transform:translateY(1px)
+    }
+    .button:active{
+        transform:translateY(1px);
+    }
+    .button.action:active{
+        transform:translateY(5px);
+        background-color:#154c79;
+        color:white;
+    }
+    .button.action.equal:active{
+        transform:translateX(5px);
+        background-color:#154c79;
+        color:white;
+    }
+}
+
