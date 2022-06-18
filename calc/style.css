@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Patrick+Hand&display=swap');
+
+/* setting color theme  */
+:root{
+    --red:red;
+    --fontcolor:black;
+    --backgroundcolor:white;
+}
+
+/* @media (prefers-color-scheme: dark) {
+:root{
+    --fontcolor:aliceblue;
+    --backgroundcolor:black;
+}
+  } */
+
+  
+body{
+    display:flex;
+    justify-content:center;
+    margin:20px 30px 0px 30px;
+    font-family: 'Macondo', cursive;
+    font-family: 'Patrick Hand', cursive;
+    background-color: var(--backgroundcolor);
+    color:var(--fontcolor);
+}
