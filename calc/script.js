@@ -10,7 +10,8 @@ let first  = 1;
 function captureKeys(e){
     let a = document.querySelector(`div[value="${e.key}"]`)
     if(a){
-        // firstClick(first)
+        a.classList.toggle('toggleButton');
+        setTimeout(()=>{a.classList.toggle('toggleButton')},100)
         a.click();
     }
     else
@@ -18,7 +19,6 @@ function captureKeys(e){
         if(e.key=="Enter"){
             // firstClick(first)
             document.querySelector(".equal").click();
-            
         }
         else if(e.keyCode == 8){
             // firstClick(first)
@@ -32,6 +32,7 @@ let buttons = document.querySelectorAll(".button")
 buttons.forEach(element=>{element.addEventListener('click',handleClick);memoryArray.push(element.textContent)})
 
 function handleClick(e){
+    exit();
     let clickedButton  = e.target.textContent;
     if(memoryArray.indexOf(clickedButton)!==-1){
         if(/^[0-9]$/.test(clickedButton)){
@@ -125,8 +126,6 @@ function handleOperations(numbers,operation){
     }
 }
 
-
-
 function alertContent(Content){
     console.log(Content)
     alertMessage.textContent= Content;
@@ -134,4 +133,3 @@ function alertContent(Content){
     alertMessage.style.opacity =1;
     body.addEventListener('click',()=>{alertMessage.classList.add('disappear');})  
 }
-

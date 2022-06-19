@@ -1,11 +1,16 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Patrick+Hand&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Patrick+Hand&family=Special+Elite&display=swap');
 /* setting color theme  */
 :root{
     --red:red;
     --fontcolor:black;
     --backgroundcolor:white;
+    --buttonborder:#154c79;
+    --buttonboxshadow:#154c7934;
+    --buttontoggleButton:#17588de6;
+    --buttonequaltone:#76b5c5;
+    --displayboxshadow:rgb(223, 222, 222);
+    --displaybackgroundcolor:rgba(255, 255, 255, 0.858)
  
 }
 /* @media (prefers-color-scheme: dark) {
@@ -13,7 +18,7 @@
     --fontcolor:aliceblue;
     --backgroundcolor:black;
 }
-  } */  
+  }  */
 
 body{
     z-index:1;
@@ -52,26 +57,29 @@ body{
     display:flex;
     flex-direction:column;
     align-items: center;
-    padding:10px 20px 10px 20px;
+    padding:10px 10px 10px 10px;
     box-shadow: 0 0 50px #154c7979;
     width:fit-content;
     margin:auto auto auto auto;
-    border-radius:10px;
+    border-radius:8px;
+    
 }
 
 #display{
     /* border: 2px solid black; */
     height:70px;
     width:210px;
-    border-radius:15px;
+    border-radius:12px;
     margin:3px 0px 3px 0px;
     display:flex;
     justify-content: center;
     align-items: flex-end;
     flex-direction:column;
-    box-shadow: rgb(223, 222, 222) 0px 0px 6px 2px inset;
-	background-color: rgba(255, 255, 255, 0.858);
-
+    box-shadow: var(--displayboxshadow) 0px 0px 6px 2px inset;
+	background-color: var(--displaybackgroundcolor);
+    font-family: 'Macondo', cursive;
+    font-family: 'Patrick Hand', cursive;
+    font-family: 'Special Elite', cursive;
 }
 
 #display > *{margin-right:3px;}
@@ -79,7 +87,7 @@ body{
     font-size:25px;
 }
 #result{
-    font-size:20px;
+    font-size:15px;
     position:relative;
 }
 .rowalign{
@@ -90,7 +98,7 @@ body{
 .button{
     text-align:center;
     margin:3px;
-    border:3px solid #154c79;
+    border:3px solid var(--buttonborder);
     border-radius:50%;
     padding:3px;
     height:auto;
@@ -98,6 +106,7 @@ body{
     min-height:15px;
     transition-property:transform,color,background-color;
     transition-duration:.2s,.2s,.3s;
+    box-shadow: var(--buttonboxshadow) 0px 0px 9px .2px inset;
 }
 
 .button.action{
@@ -105,7 +114,7 @@ body{
 }
 
 .button.equal{
-    background-color:#76b5c5 ;
+    background-color:var(--buttonequaltone) ;
     min-width:89px;
     border-radius:40px;
 }
@@ -113,26 +122,20 @@ body{
     body{
         zoom:1.45;
     }
-
     .button:active{
         transform:translateY(3px);
     }
-
     .button.action:active{
         transform:translateY(5px);
         background-color:#154c79;
-        color:white;
+        color:var(--backgroundcolor);
     }
-
-
    }
 
 @media  only screen and (min-width: 688px){
-
     body{
         zoom:1.75;
     }
-
     .button:hover{
         transform:translateY(1px)
     }
@@ -141,12 +144,18 @@ body{
     }
     .button.action:active{
         transform:translateY(5px);
-        background-color:#154c79;
-        color:white;
+        background-color:var(--buttonborder);
+        color:var(--backgroundcolor);
     }
     .button.action.equal:active{
         transform:translateX(5px);
-        background-color:#154c79;
-        color:white;
+        background-color:var(--buttonborder);
+        color:var(--backgroundcolor);
     }
+
+    .button.toggleButton{
+        background-color:var(--buttontoggleButton);
+        transform:translateY(4px)
+    }
+
 }
