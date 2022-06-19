@@ -117,7 +117,7 @@ body{
     transition-property:transform,color,background-color;
     transition-duration:.2s,.2s,.3s;
     box-shadow: var(--buttonboxshadow) 0px 0px 9px .2px inset;
-    box-shadow: #154c7979 0px 4px 2px 1px;
+
 }
 
 
@@ -154,6 +154,7 @@ body{
     }
     .button:active{
         transform:translateY(3px);
+        box-shadow: #154c7979 0px 2px 2px 1px;
     }
     .button.action:active{
         transform:translateY(5px);

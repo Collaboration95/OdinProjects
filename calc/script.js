@@ -5,12 +5,12 @@ let result = document.querySelector("#result")
 let alertMessage = document.querySelector("#alert")
 let calculated = 0;
 let first =1;
-if(first){
-    body.addEventListener('keydown',()=>{history.textContent=""})
-    first =0;
-}
 
+function remove(){
+    history.textContent=""
+}
 function captureKeys(e){
+    if(first){remove();first =0;}
     let a = document.querySelector(`div[value="${e.key}"]`)
     if(a){
         a.classList.toggle('toggleButton');
@@ -25,6 +25,7 @@ function captureKeys(e){
         }
         else if(e.keyCode == 8){
             // firstClick(first)
+
             document.querySelector('div[value="C"]').click();
         }
     }
@@ -35,7 +36,7 @@ let buttons = document.querySelectorAll(".button")
 buttons.forEach(element=>{element.addEventListener('click',handleClick);memoryArray.push(element.textContent)})
 
 function handleClick(e){
-
+    if(first){remove();first =0;}
     let clickedButton  = e.target.textContent;
     if(memoryArray.indexOf(clickedButton)!==-1){
         if(/^[0-9]$/.test(clickedButton)){
