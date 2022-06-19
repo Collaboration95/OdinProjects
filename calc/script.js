@@ -4,8 +4,11 @@ let history = document.querySelector("#history")
 let result = document.querySelector("#result")
 let alertMessage = document.querySelector("#alert")
 let calculated = 0;
-let first  = 1;
-
+let first =1;
+if(first){
+    body.addEventListener('keydown',()=>{history.textContent=""})
+    first =0;
+}
 
 function captureKeys(e){
     let a = document.querySelector(`div[value="${e.key}"]`)
@@ -32,7 +35,7 @@ let buttons = document.querySelectorAll(".button")
 buttons.forEach(element=>{element.addEventListener('click',handleClick);memoryArray.push(element.textContent)})
 
 function handleClick(e){
-    exit();
+
     let clickedButton  = e.target.textContent;
     if(memoryArray.indexOf(clickedButton)!==-1){
         if(/^[0-9]$/.test(clickedButton)){
