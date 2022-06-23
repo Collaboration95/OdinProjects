@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Patrick+Hand&display=swap');
+
+/* setting color theme  */
+:root{
+    --red:red;
+    --fontcolor:black;
+    --backgroundcolor:white;
+}
+
+/* changing variables wrt to theme-preference */
+@media (prefers-color-scheme: dark) {
+:root{
+    --fontcolor:aliceblue;
+    --backgroundcolor:black;
+}
+  }
+  
+@media (max-width: 688px){
+}
+
+@media  (min-width: 688px){
+}
