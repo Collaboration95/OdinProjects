@@ -7,81 +7,6 @@
     user-select: none;
 }
 
-/* changing variables wrt to theme-preference */
-@media (prefers-color-scheme: dark) {
-:root{
-    --fontcolor:aliceblue;
-    --backgroundcolor:black;
-}
-  }
-
-@media (max-width: 688px){
-}
-/* 
-@media  (min-width: 688px){
-    #img{
-        width:50vw;
-        height:auto;
-    }
-    #main{
-        display:flex;
-        flex-direction:row;
-    }
-
-    #column-align{
-        display:flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    
-    #content{
-        display:flex;
-        flex-direction:column;
-        width:50vw;
-        justify-content:flex-start center flex-end;
-    }
-    
-    .main-text{
-    
-        font-size:50px;
-    }
-    
-    .secondary-text{
-        display:flex;
-        justify-content:center;
-        font-size:50px;
-    }
-    
-    .tertiary-text{
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:flex-end;
-        text-align:right;
-        font-size:50px;
-        width:350px;
-        margin-left:auto;
-        margin-right:20px;
-    }
-    .card{
-        text-align: center;
-        padding:10px 5px 10px 5px;
-        border-radius: 10px;
-        display:flex;
-        margin:100px auto 50px auto;
-        justify-content: center;
-        width:fit-content;
-        border-radius: 16px;
-        box-shadow:5px 5px 20px #E5E5E5;
-    }
-    
-    .field{
-        font-size:25px;
-        min-width:160px;
-        margin:10px 20px 10px 20px;
-        background-color:white;
-    }
-
-} */
 
 #img{
     width:50vw;
@@ -92,6 +17,7 @@
     display:flex;
     flex-direction:row;
 }
+
 #column-align{
     display:flex;
     flex-direction: column;
@@ -107,15 +33,18 @@
 
 .main-text{
     font-size:50px;
+    padding:10px 0px 20px 0px;
 }
 
 .secondary-text{
     display:flex;
     justify-content:center;
+    padding:10px 0px 20px 0px;
     font-size:50px;
 }
 
 .tertiary-text{
+    padding:10px 0px 20px 0px;
     display:flex;
     flex-wrap:wrap;
     justify-content:flex-end;
@@ -125,6 +54,16 @@
     margin-left:auto;
     margin-right:20px;
 }
+
+.text{
+    padding:50px 0px 10px 0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:30px;
+    margin:20px 0px 0px 0px;
+}
+
 .card{
     text-align: center;
     padding:10px 5px 10px 5px;
@@ -134,7 +73,6 @@
     justify-content: center;
     width:fit-content;
     border-radius: 16px;
-
     box-shadow:  -5px -5px 20px #bebebe,
                  5px 5px 20px #ffffff;
 }
@@ -144,13 +82,11 @@
     flex-direction:column;  
 }
 
-.text{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-size:30px;
-    margin:20px 0px 0px 0px;
+.component{
+    position:relative;
 }
+
+
 .field{
     box-shadow: 1px 3px 5px .1px rgba(0, 0, 0, 0.704);
     border:3px solid black;
@@ -162,25 +98,30 @@
     background-color:white;
 }
 
-input::placeholder{
-    color:blue;
+.responsive{
+    position:absolute;
+    top:15px;
+    left:30px;
+    font-size: 25px;
+    transition: all 1s;
+    opacity:.5;
 }
 
-label{
-    position:absolute;
-    /* left:100px;
-    bottom:25px; */
-    top:15px;
-    left:23px;
-    font-size: 25px;
 
-    transition: all 1s;
+.component:hover .responsive{
+    background-color:white;
+    transform: translateY(-70%) scale(0.8) translateX(-10%);
+    opacity:1;
+}
 
+.defaultlablel{
+    background-color:white;
+    transform: translateY(-70%) scale(0.8) translateX(-10%);
+    opacity:1;
 }
 
 .button{
     border-radius: 10px;
-    background-color: #E5E5E5;
     border:2px solid black;
     box-shadow: 3px 5px black;
     display:flex;
@@ -188,6 +129,7 @@ label{
     align-items: center;
     width:fit-content;
     padding:10px 10px 10px 10px;
+    font-size:25px;
 }
 
 .button:hover{
@@ -197,14 +139,3 @@ label{
     transform:translateY(5px);
     box-shadow: 1px 3px black;
 }
-
-.component:hover label{
-    background-color:white;
-
-    transform: translateY(-70%) scale(0.8) translateX(-5%);
-}
-
-.component{
-    position:relative;
-}
-
