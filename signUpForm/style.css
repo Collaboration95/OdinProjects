@@ -98,6 +98,10 @@
     background-color:white;
 }
 
+.invalid{
+    border:2px solid black;
+}
+
 .responsive{
     position:absolute;
     top:15px;
@@ -107,6 +111,9 @@
     opacity:.5;
 }
 
+.invalid{
+    border:3px solid red;
+}
 
 .component:hover .responsive{
     background-color:white;
@@ -114,7 +121,11 @@
     opacity:1;
 }
 
-.defaultlablel{
+.defaultlabel{
+    top: 15px;
+    left:25px;
+    font-size:20px;
+    position:absolute;
     background-color:white;
     transform: translateY(-70%) scale(0.8) translateX(-10%);
     opacity:1;
