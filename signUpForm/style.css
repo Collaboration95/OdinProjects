@@ -102,6 +102,13 @@
     border:2px solid black;
 }
 
+input:invalid{
+    border:3px solid red;
+}
+input:valid{
+    border:2px solid green;
+}
+
 .responsive{
     position:absolute;
     top:15px;
@@ -122,9 +129,9 @@
 }
 
 .defaultlabel{
-    top: 15px;
+    top: 13px;
     left:25px;
-    font-size:20px;
+    font-size:25px;
     position:absolute;
     background-color:white;
     transform: translateY(-70%) scale(0.8) translateX(-10%);
@@ -132,6 +139,7 @@
 }
 
 .button{
+    background-color:white;
     border-radius: 10px;
     border:2px solid black;
     box-shadow: 3px 5px black;

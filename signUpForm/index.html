@@ -22,12 +22,13 @@
                 <div class="tertiary-text">Design Sleek and Stunning Cards</div>
             </div>
             <div class="text">Sign Up !</div>
-
+            <form action="#" method="get" >
             <div class="card">
+
                 <div class="column">    
                     <div class="component">
                         <label  for="FirstName">FirstName</label>
-                        <input type="text" name="FirstName"  class="field" required title="This Field is mandatory">
+                        <input pattern="^[a-zA-Z]+$" title="Cyborgs not allowed yet" type="text" name="FirstName"  class="field" required title="This Field is mandatory">
                     </div>
                     <div class="component">
                         <label for="Email" >Email</label>
@@ -46,7 +47,7 @@
                     </div>
                     <div  class="component">
                         <label for="Contact Number">Contact Number</label>
-                        <input type="text" name="Contact Number"  class="field">
+                        <input type="number" title="Enter a number with 8-10 digits" pattern="^[\d]{8,10}$" name="Contact Number"  class="field">
                     </div>
 
                     <div  class="component">
@@ -56,9 +57,11 @@
                 </div>
 
             </div>
+            
             <div>
-                <div class="button">Get Started</div>
+                <button class="button" type="submit" >Get Started</button>
             </div>
+            </form>
         </div>
     </div>
 </body>

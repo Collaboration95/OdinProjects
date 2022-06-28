@@ -8,6 +8,7 @@ let password = document.querySelector("input[name='Password']")
 let Confirm = document.querySelector("input[name='ConfirmPassword']")
 Confirm.addEventListener('focusout',checkPassword)
 
+
 let labels = document.querySelectorAll('label');
 labels.forEach(element=>{element.classList.add('responsive');})
 
@@ -35,7 +36,8 @@ function inputField(e){
 function checkPassword(e){
     if(e.target.value!=""){
         if(e.target.value!=password.value){
-            console.log("OOps")
+            e.target.setCustomValidity("Passwords Do not Match")
+            password.setCustomValidity("Passwords Do Not Match")
         }
     }
 }
