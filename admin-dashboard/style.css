@@ -6,11 +6,12 @@
 }
 i{
     font-size:30px;
+    margin-left:10px;
+    margin-right:10px
 }
 #sidebar{
     display:grid;
-    grid-template-columns: 1fr 1fr;
-    
+    grid-template-columns: 1fr 3fr;
     background-color:var(--sidebarBackground);
     max-width:16.6vw;
     min-width:160px;
@@ -19,7 +20,8 @@ i{
 }
 
 .icontext{
-
+    position:relative;
+    top:10px;
     color:var(--text1);
 }
 

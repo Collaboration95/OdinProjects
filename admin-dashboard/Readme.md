@@ -27,7 +27,23 @@ This project does not have to be responsive, but if you’d like to you can expa
 You don’t have to make a pixel perfect match with the design example. Consider this an opportunity to practice your CSS skills with your own designs.
 Don’t forget to push your finished dashboard to GitHub. Use GitHub Pages to publish it to the world!
 
-# to do 
-Finish arrangement of sidebar
+## To Do 
+
+- Sidebar
 add hover properties for sidebar
-try to do collapse and show sidebar
+arrange sidebar as clusters (grids with grid items)
+### Experimental
+Try to collapse and show sidebar
+
+
+- TopBar
+Arrange icons in topbar
+implement neomorphism shadow on search bar
+try to implement profile show on hover
+
+- Project
+Implement Cards + add icons 
+
+### Experimental
+interactable
+
