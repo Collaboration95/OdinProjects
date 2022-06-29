@@ -31,7 +31,7 @@ Don’t forget to push your finished dashboard to GitHub. Use GitHub Pages to pu
 
 - Sidebar
 add hover properties for sidebar
-arrange sidebar as clusters (grids with grid items)
+
 ### Experimental
 Try to collapse and show sidebar
 
