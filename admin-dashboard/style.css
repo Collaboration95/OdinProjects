@@ -1,0 +1,26 @@
+:root{
+    --sidebarBackground:#BAE6FD;
+    --text1:#075985;
+    --text2:#0284C7;
+
+}
+i{
+    font-size:30px;
+}
+#sidebar{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    
+    background-color:var(--sidebarBackground);
+    max-width:16.6vw;
+    min-width:160px;
+    height:100vh;
+    position:fixed;
+}
+
+.icontext{
+
+    color:var(--text1);
+}
+
+p{margin-left:16.6vw}
