@@ -1,0 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
+:root{
+    font-family: 'Cutive Mono', monospace;
+}
+
+#title{
+    font-size:60px;
+    letter-spacing:-.1em;
+}
+
+img{
+    width:80px;
+    grid-column:2;
+}
+#corner{
+    padding:10px;
+    background-color:beige;
+    position:fixed;
+    right:1px;
+    top:1px;
+    display:grid;
+    grid-template-columns: 300px 40px ;
+    grid-template-rows:1fr .5fr 5fr;
+}
+#progresstitle{
+    grid-row:2;
+}
+#progressbox{
+    grid-row:3;
+}
