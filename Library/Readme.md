@@ -27,3 +27,7 @@ can see summary of books completed + other info
 Summary of book limited to x character on the back of the book card
 ### Extra
 Try to add covers of books using api
+Add auto rows for aligning implicitly created stuff
+
+
+
