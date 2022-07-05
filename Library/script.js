@@ -9,6 +9,7 @@ function rotateCard(e){
 
 let plus = document.querySelector('.plus')
 plus.addEventListener('click',inputBox);
+// plus.addEventListener('dblclick',createData);
 
 function inputBox(){
     // Creating Html elments
@@ -25,7 +26,7 @@ function inputBox(){
     var theback =  document.createElement('div');
     var icon2 = document.createElement("i");
     var summary2 = document.createElement("div");
-    var Read = document.createElement('button');
+    var publish = document.createElement('button');
     var Delete = document.createElement('button')
     let div1= document.createElement('div');
     let div2= document.createElement('div');
@@ -45,18 +46,23 @@ function inputBox(){
     total.classList.add('total');
     icon2.classList.add('icon','fa-solid','fa-rotate-left');
     summary2.classList.add('summary2');
-    Read.classList.add('Read')
-    Read.textContent="Read";
+    publish.classList.add('publish')
     Delete.classList.add('Delete');
     textarea1.classList.add('textarea1');
     textarea2.classList.add('textarea2');
-    div1.appendChild(Read);
+    // Adding TextContent To Button
+    publish.textContent="Publish";
+    publish.addEventListener('click',GetData)
     Delete.textContent= "Delete";
+    // Appending Stuff                                                                                                     
+    div1.appendChild(publish);
     div2.appendChild(Delete)
-    title.appendChild(document.createElement("input"))
-    title.setAttribute('type', 'text');
-    author.appendChild(document.createElement("input"))
-    author.setAttribute('type','text');
+    let titleinput  = document.createElement('input')
+    titleinput.setAttribute('type', 'text');
+    title.appendChild(titleinput)
+    let authorinput  = document.createElement('input')
+    authorinput.setAttribute('type', 'text')
+    author.appendChild(authorinput)
     summary.appendChild(textarea1)
     read.appendChild(document.createElement("input"))
     total.appendChild(document.createElement("input"))
@@ -74,4 +80,28 @@ function inputBox(){
 }
 
 
-console.log(document.querySelector('html'))
+let mylibrary = [];
+function Book(){
+    this.title = title;
+    this.author = author;
+    this.shortSummary = shortSummary;
+    this.read = read;
+    this.total = total;
+    this.summary = summary;
+    this.read = false;
+}
+
+
+function GetData(e){
+    console.log(e)
+    let title  = ((e.path[3]).childNodes[0]).childNodes[1]
+    let author  = ((e.path[3]).childNodes[0]).childNodes[2]
+    let summary  = ((e.path[3]).childNodes[0]).childNodes[3]
+    let read  = (((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]
+    let total  = (((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]
+    let summary2  = ((e.path[3]).childNodes[1]).childNodes[1]
+
+   
+
+
+}
