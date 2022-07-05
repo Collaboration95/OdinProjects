@@ -29,5 +29,8 @@ Summary of book limited to x character on the back of the book card
 Try to add covers of books using api
 Add auto rows for aligning implicitly created stuff
 
-
-
+### Stuff To Do Next:
+Finish Input Box function        
+Code a new function to use divs instead of input boxes
+Implement Object Structure for Creating Objects
+Try to Implement caching + firebase app for cloud stuff

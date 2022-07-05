@@ -48,27 +48,29 @@ function inputBox(){
     Read.classList.add('Read')
     Read.textContent="Read";
     Delete.classList.add('Delete');
-    Delete.textContent= "Delete";
-    div1.appendChild(Read);
-    div2.appendChild(Delete)
     textarea1.classList.add('textarea1');
     textarea2.classList.add('textarea2');
+    div1.appendChild(Read);
+    Delete.textContent= "Delete";
+    div2.appendChild(Delete)
     title.appendChild(document.createElement("input"))
+    title.setAttribute('type', 'text');
     author.appendChild(document.createElement("input"))
+    author.setAttribute('type','text');
     summary.appendChild(textarea1)
     read.appendChild(document.createElement("input"))
     total.appendChild(document.createElement("input"))
-    pages.append(read,total);
+    read.setAttribute('type','text');
+    total.setAttribute('type','text');
     summary2.appendChild(textarea2)
     icon.addEventListener('click',rotateCard)
     icon2.addEventListener('click',rotateCard)
+    pages.append(read,total);
     thefront.append(icon2,title,author,summary,icon,pages);
     theback.append(icon,summary2,div1,div2)
     thecard.append(thefront,theback);
     maincontainer.append(thecard);
-
     document.querySelector('main').appendChild(maincontainer);
-
 }
 
 
