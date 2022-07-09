@@ -109,18 +109,35 @@ function Book(){
     this.read = false;
 }
 
-
 function GetData(e){
-    console.log(e)
-    let title  = ((e.path[3]).childNodes[0]).childNodes[1]
-    let author  = ((e.path[3]).childNodes[0]).childNodes[2]
-    let summary  = ((e.path[3]).childNodes[0]).childNodes[3]
-    let read  = (((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]
-    let total  = (((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]
-    let summary2  = ((e.path[3]).childNodes[1]).childNodes[1]
+    let title  = (((e.path[3]).childNodes[0]).childNodes[1]).childNodes[0]
+    let author  = (((e.path[3]).childNodes[0]).childNodes[2]).childNodes[0]
+    let summary  = (((e.path[3]).childNodes[0]).childNodes[3]).childNodes[0]
+    let read  = ((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]).childNodes[0]
+    let total  = ((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[1]).childNodes[0]
+    let summary2  = (((e.path[3]).childNodes[1]).childNodes[1]).childNodes[0]
+
+    // createData(title.value,summary.value,read.value,total.value,summary2.value);
+    saveData(title,author,summary,read,total,summary2)
+}
+
+function saveData(title,author,summary,read,total,summary2){
+    console.log(title.value)
+}
+
+function createData(title,author,summary,read,total,summary2){
+    var card = new Book(title,summary,read,total,summary2,false)
+    mylibrary.push(card);
+    console.log(mylibrary)
 }
 
 function deleteCard(e){
     e.path[4].remove() // Traversing to .maincontainer and remove card
     console.log("Delete Card Function deleted a card")
 }
+
+// Adding Delete Buton functionality for starting cards
+let Del = document.querySelectorAll(".Delete")
+Del.forEach(element=>{element.addEventListener('click',deleteCard)})
+
+
