@@ -98,8 +98,8 @@ function inputBox(){
     document.querySelector('#lastcard').before(maincontainer)
 }
 
-let mylibrary = [];
-function Book(){
+let mylibrary = new Array;
+function Book(title,author,shortSummary,read,total,summary){
     this.title = title;
     this.author = author;
     this.shortSummary = shortSummary;
@@ -116,17 +116,21 @@ function GetData(e){
     let read  = ((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]).childNodes[0]
     let total  = ((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[1]).childNodes[0]
     let summary2  = (((e.path[3]).childNodes[1]).childNodes[1]).childNodes[0]
-
-    // createData(title.value,summary.value,read.value,total.value,summary2.value);
-    saveData(title,author,summary,read,total,summary2)
+    let arr = []
+    arr.push(title,author,summary,read,total,summary2);
+    
+    if(arr.indexOf("")!=-1){  
+        console.log("Sorry Fill up the whole card")
+    }
+    else{
+        saveData(title,author,summary,read,total,summary2)
+    }
+    
 }
 
 function saveData(title,author,summary,read,total,summary2){
-    console.log(title.value)
-}
+    var card = new Book(title.value,author.value,summary.value,read.value,total.value,summary2.value,false)
 
-function createData(title,author,summary,read,total,summary2){
-    var card = new Book(title,summary,read,total,summary2,false)
     mylibrary.push(card);
     console.log(mylibrary)
 }
