@@ -130,18 +130,28 @@ function GetData(e){
 
 function saveData(title,author,summary,read,total,summary2){
     var card = new Book(title.value,author.value,summary.value,read.value,total.value,summary2.value,false)
-
     mylibrary.push(card);
+    PrintData();
+}
+
+function PrintData(){
     console.log(mylibrary)
 }
 
 function deleteCard(e){
+    var title  = ((((e.path[3]).childNodes[0]).childNodes[1]).childNodes[0]).value
+    deleteData(title);
+    
     e.path[4].remove() // Traversing to .maincontainer and remove card
     console.log("Delete Card Function deleted a card")
+}
+
+function deleteData(title){
+    const newMylibrary = mylibrary.filter(obj=>{obj.title!=title})
+    console.log(`changed array is ${newMylibrary}`)
 }
 
 // Adding Delete Buton functionality for starting cards
 let Del = document.querySelectorAll(".Delete")
 Del.forEach(element=>{element.addEventListener('click',deleteCard)})
-
 
