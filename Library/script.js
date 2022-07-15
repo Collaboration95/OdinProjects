@@ -62,9 +62,8 @@ function inputBox(){
     
     // Adding TextContent To Button
     publish.textContent="Publish";
-    publish.addEventListener('click',GetData)
     Delete.textContent= "Delete";
-
+    
     // Adding Event Listeners & Setting up attributes                                                                                        
     titleinput.setAttribute('type', 'text');
     authorinput.setAttribute('type', 'text')
@@ -79,7 +78,7 @@ function inputBox(){
     icon.addEventListener('click',rotateCard)
     icon2.addEventListener('click',rotateCard)
     Delete.addEventListener('click',deleteCard)
-
+    publish.addEventListener('click',GetData)    
     // Appending tags 
     div1.appendChild(publish);
     div2.appendChild(Delete)
@@ -98,7 +97,7 @@ function inputBox(){
     document.querySelector('#lastcard').before(maincontainer)
 }
 
-let mylibrary = new Array;
+let mylibrary = new Array();
 function Book(title,author,shortSummary,read,total,summary){
     this.title = title;
     this.author = author;
@@ -110,48 +109,58 @@ function Book(title,author,shortSummary,read,total,summary){
 }
 
 function GetData(e){
-    let title  = (((e.path[3]).childNodes[0]).childNodes[1]).childNodes[0]
-    let author  = (((e.path[3]).childNodes[0]).childNodes[2]).childNodes[0]
-    let summary  = (((e.path[3]).childNodes[0]).childNodes[3]).childNodes[0]
-    let read  = ((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]).childNodes[0]
-    let total  = ((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[1]).childNodes[0]
-    let summary2  = (((e.path[3]).childNodes[1]).childNodes[1]).childNodes[0]
-    let arr = []
+    var title  = ((((e.path[3]).childNodes[0]).childNodes[1]).childNodes[0]).value
+    var author  = ((((e.path[3]).childNodes[0]).childNodes[2]).childNodes[0]).value
+    var summary  = ((((e.path[3]).childNodes[0]).childNodes[3]).childNodes[0]).value
+    var read  = (((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[0]).childNodes[0]).value
+    var total  = (((((e.path[3]).childNodes[0]).childNodes[4]).childNodes[1]).childNodes[0]).value
+    var summary2  = ((((e.path[3]).childNodes[1]).childNodes[1]).childNodes[0]).value
+    var arr = new Array();
     arr.push(title,author,summary,read,total,summary2);
-    
+    console.log(`GetData Function , Array is ${arr}`)
     if(arr.indexOf("")!=-1){  
         console.log("Sorry Fill up the whole card")
     }
     else{
+        var publish = (((e.path[3]).childNodes[1]).childNodes[2]).childNodes[0]
+        publish.removeEventListener('click',GetData)
+        let icon =  (((e.path[3]).childNodes[0]).childNodes[0])
+        icon.click()
         saveData(title,author,summary,read,total,summary2)
     }
-    
 }
 
 function saveData(title,author,summary,read,total,summary2){
-    var card = new Book(title.value,author.value,summary.value,read.value,total.value,summary2.value,false)
+    var card = new Book(title,author,summary,read,total,summary2,false)
     mylibrary.push(card);
-    PrintData();
+    console.log(mylibrary[mylibrary.length -1])
 }
 
-function PrintData(){
-    console.log(mylibrary)
-}
+// function PrintData(){
+//     console.log(`Print Data Function ${mylibrary}`)
+// }
 
-function deleteCard(e){
+function deleteCard(e){  
     var title  = ((((e.path[3]).childNodes[0]).childNodes[1]).childNodes[0]).value
     deleteData(title);
-    
-    e.path[4].remove() // Traversing to .maincontainer and remove card
+    // e.path[4].remove() // Traversing to .maincontainer and remove card
     console.log("Delete Card Function deleted a card")
 }
 
 function deleteData(title){
-    const newMylibrary = mylibrary.filter(obj=>{obj.title!=title})
-    console.log(`changed array is ${newMylibrary}`)
+    mylibrary.forEach(element=>{if(title==element.title){
+        const index =mylibrary.indexOf(element);
+        mylibrary.splice(index,1);
+    }})
+
+    // mylibrary.forEach(element=>{console.log(`title is ${element.title}`)})
+    // console.log(mylibrary)
+    // mylibrary = newMylibrary;
+    // console.log(`My new Library is ${newMylibrary}`)
 }
 
 // Adding Delete Buton functionality for starting cards
 let Del = document.querySelectorAll(".Delete")
 Del.forEach(element=>{element.addEventListener('click',deleteCard)})
+
 
