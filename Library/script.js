@@ -1,6 +1,8 @@
 let rotate = document.querySelectorAll(".icon");
 rotate.forEach(element=>{element.addEventListener('click',rotateCard)})
-
+let books = document.querySelector('.books')
+let page = document.querySelector('.page')
+let estimate = document.querySelector('.estimate')
 function rotateCard(e){
     e.path[2].classList.toggle("rotateClass")
     e.preventDefault()
@@ -127,6 +129,7 @@ function GetData(e){
         saveData(title,author,summary,page,total,summary2)
         createCard()
         e.path[4].remove()
+        updateProgress()
     }
 }
 
@@ -142,10 +145,20 @@ function deleteCard(e){
     deleteData(title);
     e.path[4].remove() // Traversing to .maincontainer and remove card
     console.log("Delete Card Function deleted a card")
+    updateProgress()
 }
 
+function deleteCard2(e){
+    var title  = (((e.path[3]).childNodes[0]).childNodes[1]).textContent
+    console.log(e)
+    deleteData(title);
+    e.path[4].remove() // Traversing to .maincontainer and remove card
+    console.log("Delete Card2 Function deleted a card")
+    updateProgress()
+}
+
+
 function deleteData(title){
-    console.log(`deleteData title is ${title}`)
     mylibrary.forEach(element=>{if(title==element.title){
         const index =mylibrary.indexOf(element);
         mylibrary.splice(index,1);
@@ -155,6 +168,9 @@ function deleteData(title){
 // Adding Delete Buton functionality for starting cards
 let Del = document.querySelectorAll(".Delete")
 Del.forEach(element=>{element.addEventListener('click',deleteCard)})
+
+let Read = document.querySelectorAll(".Read")
+Read.forEach(element=>{element.addEventListener('click',Read_book)})
 
 function createCard(){
     var currentData = mylibrary[mylibrary.length-1];
@@ -206,7 +222,8 @@ function createCard(){
     // Adding Event Listeners & Setting up attributes                                                                                        
     icon.addEventListener('click',rotateCard)
     icon2.addEventListener('click',rotateCard)
-    Delete.addEventListener('click',deleteCard)
+    Delete.addEventListener('click',deleteCard2)
+    Read.addEventListener('click',Read_book)
    
     // Appending tags 
     div1.appendChild(Read);
@@ -219,3 +236,38 @@ function createCard(){
     maincontainer.append(thecard);
     document.querySelector('#lastcard').before(maincontainer)
 }
+
+function updateProgress(){
+    console.log(`Stuff has to be updated`)
+    let read = 0;
+    let page = 0;
+    let final = 0;
+    mylibrary.forEach(element=>
+        {if(element.read){read++;}
+        page+=parseInt(element.page);
+        final+=parseInt(element.total)
+    })
+    console.log(`The number of books read is ${read} , The number of pages read is ${page}`)
+    books.textContent = `No of Books Read :${read}`
+    page.textContent = `No of Books Read : ${page}`
+    let time = Math.ceil((275*(final-page))/250);
+    estimate.textContent = `Estimated Reading Time : ${time} mins`
+}
+
+function Read_book(e){
+    var title  = (((e.path[3]).childNodes[0]).childNodes[1]).textContent
+    let cards = document.querySelectorAll('.maincontainer')   
+    cards.pop()
+    // console.log()
+    // cards.pop()
+    console.log(cards)
+    mylibrary.forEach(element=>{if(title==element.title){   
+        element.read= true;
+        element.page = element.total;
+    }})
+    
+    updateProgress()
+    // cards.forEach(element=>{ console.log(((element.childNodes[0]).childNodes[0]).childNodes[1]) })
+}
+
+
