@@ -77,6 +77,7 @@ function inputBox(){
     textarea2.required="true";
     total_input.setAttribute('type','number');
     icon.addEventListener('click',rotateCard)
+
     icon2.addEventListener('click',rotateCard)
     Delete.addEventListener('click',deleteCard)
     publish.addEventListener('click',GetData)    
@@ -96,7 +97,6 @@ function inputBox(){
     maincontainer.append(thecard);
     document.querySelector('#lastcard').before(maincontainer)
 }
-
 
 let mylibrary = new Array();
 function Book(title,author,shortSummary,page,total,summary){
@@ -133,7 +133,6 @@ function GetData(e){
     }
 }
 
-
 function saveData(title,author,summary,page,total,summary2){
     var card = new Book(title,author,summary,page,total,summary2,false)
     mylibrary.push(card);
@@ -157,7 +156,6 @@ function deleteCard2(e){
     updateProgress()
 }
 
-
 function deleteData(title){
     mylibrary.forEach(element=>{if(title==element.title){
         const index =mylibrary.indexOf(element);
@@ -171,6 +169,7 @@ Del.forEach(element=>{element.addEventListener('click',deleteCard)})
 
 let Read = document.querySelectorAll(".Read")
 Read.forEach(element=>{element.addEventListener('click',Read_book)})
+
 
 function createCard(){
     var currentData = mylibrary[mylibrary.length-1];
@@ -224,6 +223,7 @@ function createCard(){
     icon2.addEventListener('click',rotateCard)
     Delete.addEventListener('click',deleteCard2)
     Read.addEventListener('click',Read_book)
+    read.addEventListener('keydown',rotateTab)
    
     // Appending tags 
     div1.appendChild(Read);
@@ -257,17 +257,17 @@ function updateProgress(){
 function Read_book(e){
     var title  = (((e.path[3]).childNodes[0]).childNodes[1]).textContent
     let cards = document.querySelectorAll('.maincontainer')   
-    cards.pop()
-    // console.log()
-    // cards.pop()
     console.log(cards)
     mylibrary.forEach(element=>{if(title==element.title){   
         element.read= true;
         element.page = element.total;
     }})
-    
     updateProgress()
     // cards.forEach(element=>{ console.log(((element.childNodes[0]).childNodes[0]).childNodes[1]) })
 }
 
 
+function rotateTab(e){
+    console.log(e)
+
+}
