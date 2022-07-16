@@ -223,7 +223,6 @@ function createCard(){
     icon2.addEventListener('click',rotateCard)
     Delete.addEventListener('click',deleteCard2)
     Read.addEventListener('click',Read_book)
-    read.addEventListener('keydown',rotateTab)
    
     // Appending tags 
     div1.appendChild(Read);
@@ -239,9 +238,8 @@ function createCard(){
 
 function updateProgress(){
     console.log(`Stuff has to be updated`)
-    let read = 0;
-    let page = 0;
-    let final = 0;
+    let read,page,final = 0;
+
     mylibrary.forEach(element=>
         {if(element.read){read++;}
         page+=parseInt(element.page);
@@ -251,10 +249,22 @@ function updateProgress(){
     books.textContent = `No of Books Read :${read}`
     page.textContent = `No of Books Read : ${page}`
     let time = Math.ceil((275*(final-page))/250);
-    estimate.textContent = `Estimated Reading Time : ${time} mins`
+    let timePhrase = "Estimated Reading Time : "
+    if(time>60){
+        let hrs = parseInt(time/60);
+        let mins = time%60;
+    }
+    if(hrs !=0){ 
+        timePhrase+=" "+hrs+" "
+    }
+    if(mins!=0){
+        timePhase+=mins+" mins"
+    }
+    estimate.textContent = timePhrase;
 }
 
 function Read_book(e){
+    var title  = (((e.path[3]).childNodes[0]).childNodes[1]).textContent
     var title  = (((e.path[3]).childNodes[0]).childNodes[1]).textContent
     let cards = document.querySelectorAll('.maincontainer')   
     console.log(cards)
@@ -263,11 +273,5 @@ function Read_book(e){
         element.page = element.total;
     }})
     updateProgress()
-    // cards.forEach(element=>{ console.log(((element.childNodes[0]).childNodes[0]).childNodes[1]) })
 }
 
-
-function rotateTab(e){
-    console.log(e)
-
-}
