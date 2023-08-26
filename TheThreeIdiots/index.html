@@ -1,0 +1,52 @@
+!DOCTYPE html
+<html>
+<head>
+    <title>Bad Accessibility Example</title>
+</head>
+<body>
+    <!-- Poorly written heading without semantic structure -->
+    <div style="font-size: 24px;">Welcome to our website</div>
+    
+    <!-- Image without meaningful alt text -->
+    <img src="image.jpg" alt="Image" />
+
+    <!-- Link with no discernible purpose -->
+    <div style="color: #888;">Click <a href="#">here</a> to continue.</div>
+
+    <!-- Form without proper labels for input fields -->
+    <form>
+        <!-- Missing label for input -->
+        <div>Enter your name:</div>
+        <input type="text" />
+
+        <!-- Missing label for button -->
+        <button>Submit</button>
+    </form>
+
+    <!-- Elements that may cause confusion or disruption -->
+    <marquee>This is a scrolling text.</marquee>
+    <blink>This text is blinking.</blink>
+    
+    <!-- Poor color contrast making text hard to read -->
+    <p style="color: #777;">This is some text with low contrast color.</p>
+
+    <!-- Text inside an image, not accessible to screen readers -->
+    <img src="important-info.png" alt="Important information: Call us at 123-456-7890 for assistance." />
+
+    <!-- Complex table layout without proper headers and captions -->
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>30</td>
+        </tr>
+    </table>
+</body>
+</html>
