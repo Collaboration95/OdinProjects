@@ -1,42 +1,67 @@
-<!DOCTYPE html>
+!DOCTYPE html
 <html>
 <head>
-    <title>Failing WCAG Example</title>
-    <style>
-        body {
-            background-color: white;
-            color: #000;
-            font-size: 20px;
-            text-align: center;
-        }
-        
-        .btn {
-            background-color: red;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    <title>Bad Accessibility Example</title>
 </head>
 <body>
-    <h1>Welcome to our Inaccessible Website</h1>
-    <p>This website is an example of how not to design for accessibility.</p>
+    <!-- Poorly written heading without semantic structure -->
+    <div style="font-size: 24px;">Welcome to our website</div>
     
-    <button class="btn">Click Me</button>
-    
-    <div style="width: 100px; height: 100px; background-color: green;"></div>
-    
-    <img src="image.jpg" alt="A beautiful image">
-    
+    <!-- Image without meaningful alt text -->
+    <img src="image.jpg"  />
+
+    <!-- Link with no discernible purpose -->
+    <div style="color: #888;">Click <a href="#">here</a> to continue.</div>
+
+    <!-- Form without proper labels for input fields -->
     <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name">
+        <!-- Missing label for input -->
+        <div>Enter your name:</div>
+        <input type="text" />
+
+        <!-- Missing label for button -->
+        <button>Submit</button>
     </form>
+
+    <!-- Elements that may cause confusion or disruption -->
+    <marquee>This is a scrolling text.</marquee>
+    <blink>This text is blinking.</blink>
     
-    <div>
-        <p>Here is some important information:</p>
-        <span style="color: red;">Do not share this!</span>
-    </div>
+    <!-- Poor color contrast making text hard to read -->
+    <p style="color: #777;">This is some text with low contrast color.</p>
+ <iframe width="560" height="315" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0"></iframe>
+    <!-- Text inside an image, not accessible to screen readers -->
+    <img src="important-info.png"  />
+
+    <!-- Complex table layout without proper headers and captions -->
+    <table class="1">
+        <div class="tr">
+            <div class="cell">Name</div>
+            <div class="cell">Age</div>
+        </div>
+        <div class="tr">
+            <div class="cell">John</div>
+            <div class="cell">92</div>
+        </div>
+                <div class="tr">
+            <div class="cell">Pam</div>
+            <div class="cell">42</div>
+        </div>
+    </table>
+
+    <style>
+        .tr {
+            display: table-row;
+            padding:5px;
+            border:rgb(0, 0, 0) 1px solid;
+
+
+        }
+
+        .cell {
+            display: table-cell;
+            border:rgb(244, 183, 183) 1px solid;
+        }
+    </style>
 </body>
 </html>
